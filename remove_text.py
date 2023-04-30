@@ -2,8 +2,11 @@ import requests
 import sys
 import os
 
-
-def remove_text(image_path, clipdrop_key):
+def remove_text_from_image(image_path, clipdrop_key):
+    """
+    이미지에서 텍스트 제거
+    ref. https://clipdrop.co/apis/docs/remove-text
+    """
     output_folder_path = "output"
     image_file = open(image_path, 'rb')
     file_extension = os.path.splitext(image_path)[1].lower()
@@ -40,5 +43,5 @@ if __name__ == '__main__':
     image_path = sys.argv[1]
     clipdrop_key = sys.argv[2]
 
-    new_file_path = remove_text(image_path, clipdrop_key)
+    new_file_path = remove_text_from_image(image_path, clipdrop_key)
     print(new_file_path)
